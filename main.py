@@ -1,40 +1,31 @@
-import time
 from time import sleep
 import random
 
 
 class Hero:
-    def __init__(self, name, hp, hp_1, damage, mana, speed):
+    def __init__(self, name, hp, hp_1, damage):
         self.lvl = 1
         self.xp = 0
         self.name = name
         self.hp = hp
         self.hp_1 = hp_1
         self.damage = damage
-        self.mana = mana
-        self.speed = speed
 
     def create_hero(name, race):
         name = name
         hp = 0
         damage = 0
-        mana = 0
-        speed = 0
         if race == race_list[0]:
             hp += 100
             damage += 10
-            mana += 10
-            speed += 100
         elif race == race_list[1]:
             hp += 130
             damage += 12.5
-            mana += 1
-            speed += 70
         else:
             print('This race of character does not exist.')
             quit()
         hp_1 = hp
-        return Hero(name, hp, hp_1, damage, mana, speed)
+        return Hero(name, hp, hp_1, damage)
 
     def lvl_up(self, max_xp):
         self.xp -= max_xp
@@ -42,7 +33,6 @@ class Hero:
         self.hp = self.hp + (self.hp * 0.05)
         self.hp_1 = self.hp
         self.damage += 1
-        self.mana += 5
         print(f"{hero.name}, congratulations, your lvl is: {self.lvl} ")
 
     def weapon(self):
